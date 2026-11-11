@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>آرام کننده ایرانی</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap');
+
+:root {
+  --cream: #f8f0e3;
+  --caramel: #c58d5b;
+  --mocha: #654735;
+  --dark: #39271e;
+  --light: #fffaf2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Vazirmatn', sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 65px 20px 45px;
+  background: linear-gradient(135deg, #ead4b8, #f8f0e3, #d9b28e);
+}
+
+header h1 {
+  font-size: clamp(30px, 6vw, 52px);
+  font-weight: 800;
+  color: var(--mocha);
+  margin-bottom: 12px;
+}
+
+header p {
+  font-size: 15px;
+  color: #84644c;
+}
+
+.decoration {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.container {
+  max-width: 1150px;
+  margin: auto;
+  padding: 35px 20px 70px;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.intro h2 {
+  font-size: 25px;
+  color: var(--mocha);
+  margin-bottom: 10px;
+}
+
+.intro p {
+  color: #98765b;
+  font-size: 14px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.food-card {
+  background: var(--light);
+  border-radius: 23px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(91, 58, 35, 0.09);
+  border: 1px solid #ead8c3;
+  transition: .35s ease;
+  cursor: pointer;
+}
+
+.food-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(91, 58, 35, 0.16);
+}
+
+.image-box {
+  height: 190px;
+  background: #ead9c5;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.food-card:hover img {
+  transform: scale(1.08);
+}
+
+.food-info {
+  text-align: center;
+  padding: 18px 12px 20px;
+}
+
+.food-info h3 {
+  font-size: 19px;
+  color: var(--mocha);
+  margin-bottom: 7px;
+}
+
+.food-info p {
+  font-size: 12px;
+  color: #a18368;
+  margin-bottom: 15px;
+}
+
+.play-button {
+  background: linear-gradient(135deg, #c58d5b, #936342);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.play-button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 5px 15px #c58d5b66;
+}
+
+.volume-box {
+  background: #fffaf2;
+  border: 1px solid #ead8c3;
+  border-radius: 20px;
+  margin: 35px auto 0;
+  max-width: 450px;
+  padding: 22px;
+  text-align: center;
+}
+
+.volume-box label {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--mocha);
+  font-weight: 700;
+}
+
+input[type="range"] {
+  width: 85%;
+  accent-color: var(--caramel);
+}
+
+#status {
+  text-align: center;
+  margin-top: 20px;
+  color: #98765b;
+  font-size: 13px;
+  min-height: 25px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #e9d6c0;
+  color: #84644c;
+  font-size: 13px;
+}
+
+@media(max-width: 500px) {
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+  }
+
+  .image-box {
+    height: 145px;
+  }
+
+  .food-info {
+    padding: 13px 7px;
+  }
+
+  .food-info h3 {
+    font-size: 16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="decoration">☕ 🍪 🍯</div>
+  <h1>آرام کننده ایرانی</h1>
+  <p>یک گوشه دنج برای آرامش و لذت بردن از صداها</p>
+</header>
+
+<main class="container">
+
+  <section class="intro">
+    <h2>دنیای صداهای آرامش‌بخش</h2>
+    <p>روی هر خوراکی بزن و صدای مخصوصش رو گوش کن 🤎</p>
+  </section>
+
+  <section class="gallery">
+
+    <div class="food-card" onclick="playFood(0)">
+      <div class="image-box">
+        <img src="chips.JPG" alt="چیپس">
+      </div>
+      <div class="food-info">
+        <h3>چیپس</h3>
+        <p>صدای ترد و دلنشین</p>
+        <button class="play-button">▶ پخش صدا</button>
+      </div>
+    </div>
+
+    <div class="food-card" onclick="playFood(1)">
+      <div class="image-box">
+        <img src="apple.JPG" alt="سیب">
+      </div>
+      <div class="food-info">
+        <h3>سیب</h3>
+        <p>یک صدای ترد و تازه</p>
+        <button class="play-button">▶ پخش صدا</button>
+      </div>
+    </div>
+
+    <div class="food-card" onclick="playFood(2)">
+      <div class="image-box">
+        <img src="coffee.JPG" alt="قهوه">
+      </div>
+      <div class="food-info">
+        <h3>قهوه</h3>
+        <p>لحظه‌ای آرامش با قهوه</p>
+        <button class="play-button">▶ پخش صدا</button>
+      </div>
+    </div>
+
+    <div class="food-card" onclick="playFood(3)">
+      <div class="image-box">
+        <img src="popcorn.JPG" alt="پاپ کورن">
+      </div>
+      <div class="food-info">
+        <h3>پاپ‌کورن</h3>
+        <p>صدای ریز و جذاب</p>
+        <button class="play-button">▶ پخش صدا</button>
+      </div>
+    </div>
+
+    <div class="food-card" onclick="playFood(4)">
+      <div class="image-box">
+        <img src="soup.JPG" alt="سوپ">
+      </div>
+      <div class="food-info">
+        <h3>سوپ</h3>
+        <p>صدای گرم و دلنشین</p>
+        <button class="play-button">▶ پخش صدا</button>
+      </div>
+    </div>
+
+    <div class="food-card" onclick="playFood(5)">
+      <div class="image-box">
+        <img src="bread.JPG" alt="نان">
+      </div>
+      <div class="food-info">
+        <h3>نان</h3>
+        <p>صدای برش نان تازه</p>
+        <button class="play-button">▶ پخش صدا</button>
+      </div>
+    </div>
+
+    <div class="food-card" onclick="playFood(6)">
+      <div class="image-box">
+        <img src="cucumber.JPG" alt="خیار">
+      </div>
+      <div class="food-info">
+        <h3>خیار</h3>
+        <p>صدای خنک و ترد</p>
+        <button class="play-button">▶ پخش صدا</button>
+      </div>
+    </div>
+
+    <div class="food-card" onclick="playFood(7)">
+      <div class="image-box">
+        <img src="chocolate.JPG" alt="شکلات">
+      </div>
+      <div class="food-info">
+        <h3>شکلات</h3>
+        <p>صدای شکستن شکلات</p>
+        <button class="play-button">▶ پخش صدا</button>
+      </div>
+    </div>
+
+    <div class="food-card" onclick="playFood(8)">
+      <div class="image-box">
+        <img src="soda.JPG" alt="نوشابه">
+      </div>
+      <div class="food-info">
+        <h3>نوشابه</h3>
+        <p>صدای باز شدن نوشابه</p>
+        <button class="play-button">▶ پخش صدا</button>
+      </div>
+    </div>
+
+    <div class="food-card" onclick="playFood(9)">
+      <div class="image-box">
+        <img src="orange.JPG" alt="پرتقال">
+      </div>
+      <div class="food-info">
+        <h3>پرتقال</h3>
+        <p>صدای یک میوه تازه</p>
+        <button class="play-button">▶ پخش صدا</button>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="volume-box">
+    <label for="volume">🔊 تنظیم صدای سایت</label>
+    <input
+      type="range"
+      id="volume"
+      min="0"
+      max="1"
+      step="0.01"
+      value="0.8"
+    >
+  </div>
+
+  <div id="status">آماده برای یک تجربه آرامش‌بخش 🤎</div>
+
+</main>
+
+<footer>
+  ساخته شده با عشق و آرامش ☕🤎
+</footer>
+
+<script>
+const sounds = [
+  "chips.mp3",
+  "apple.mp3",
+  "coffee.mp3",
+  "popcorn.mp3",
+  "soup.mp3",
+  "bread.mp3",
+  "cucumber.mp3",
+  "chocolate.mp3",
+  "soda.mp3",
+  "orange.mp3"
+];
+
+let currentAudio = null;
+
+const statusText = document.getElementById("status");
+const volumeSlider = document.getElementById("volume");
+
+function playFood(index) {
+
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+  }
+
+  currentAudio = new Audio(sounds[index]);
+  currentAudio.volume = Number(volumeSlider.value);
+
+  statusText.textContent = "در حال پخش صدای خوراکی... 🤎";
+
+  currentAudio.play()
+    .then(() => {
+      statusText.textContent = "در حال پخش 🤎";
+    })
+    .catch(() => {
+      statusText.textContent =
+        "فایل صوتی پیدا نشد! نام فایل را در GitHub بررسی کن.";
+    });
+
+  currentAudio.onended = () => {
+    statusText.textContent = "پخش صدا تمام شد ☕";
+  };
+}
+
+volumeSlider.addEventListener("input", function() {
+  if (currentAudio) {
+    currentAudio.volume = Number(this.value);
+  }
+});
+</script>
+
+</body>
+</html>
